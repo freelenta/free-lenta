@@ -1,0 +1,19 @@
+{% extends "news_site/base.html" %}
+{% load staticfiles %}
+{% block title %}{{ cat_name }}{% endblock %}
+{% block body %}
+	{% if articles %}
+     	<div class="row">
+        	{% for article in articles %}
+          		<div class="col-6 col-sm-6 col-lg-4">
+            		<img class="img-circle" src="/{{ article.article_image_small.url }}" alt="Generic placeholder image">
+            		<h4>{{ article.title }}</h4>
+            		<p>{{ article.preview }}</p>
+            		<p><a class="btn btn-default" href="{% url 'news_site:detail' article.id %}" role="button">Читать далее &raquo;</a></p>
+          		</div><!--/span-->
+        	{% endfor %}
+      	</div><!--/row-->
+    {% else %}
+    	<h1>В этой категории пока нет новостей!</h1>
+    {% endif %}
+{% endblock %}

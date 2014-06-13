@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{% static 'news_site/imgs/favicon2.ico' %}">
+
+    <title>Свободная лента - {% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'news_site/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'news_site/css/offcanvas.css' %}" rel="stylesheet">
+    <link href="{% static 'news_site/css/main.css' %}" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Свободная Лента</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/about/">О нас</a></li>
+            <li><a href="/help/">Помочь проекту</a></li>
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-12 col-sm-9">
+          {% block jumbotron %}
+          {% endblock %}
+          {% block body %}
+          {% endblock %}
+        </div><!--/span-->
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div class="list-group">
+            <a href="/" class="list-group-item">Главное</a>
+            <a href="{% url 'news_site:category' 'R' %}" class="list-group-item">Россия</a>
+            <a href="{% url 'news_site:category' 'W' %}" class="list-group-item">Мир</a>
+            <a href="{% url 'news_site:category' 'U' %}" class="list-group-item">Бывший СССР</a>
+            <a href="{% url 'news_site:category' 'E' %}" class="list-group-item">Экономика</a>
+            <a href="{% url 'news_site:category' 'T' %}" class="list-group-item">Наука и техника</a>
+            <a href="{% url 'news_site:category' 'S' %}" class="list-group-item">Спорт</a>
+            <a href="{% url 'news_site:category' 'C' %}" class="list-group-item">Культура</a>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+      <hr>
+      <footer>
+        <p>&copy; Свободная Лента 2014</p>
+      </footer>
+    </div><!--/.container-->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'news_site/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'news_site/js/offcanvas.js' %}"></script>
+  </body>
+</html>

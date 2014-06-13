@@ -1,0 +1,11 @@
+.jumbotron {
+  background-image:url('http://www.aerophile.com/wp-content/themes/blankslate/img/world_map.jpg?23456897');
+}
+p.custom {
+	color:#C0C0C0;
+}
+
+.article_large {
+	height: 360px;
+	width: 520px;
+}
